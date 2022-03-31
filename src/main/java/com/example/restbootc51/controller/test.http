@@ -1,0 +1,18 @@
+GET http://localhost:8080/user
+
+###
+
+GET http://localhost:8080/user/findByUsername?username=Test
+
+###
+
+POST http://localhost:8080/user
+Content-Type: application/json
+
+{
+  "username" : "Test",
+  "password" : "test",
+  "name" : "Test"
+}
+
+###

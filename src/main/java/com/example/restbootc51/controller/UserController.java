@@ -28,7 +28,7 @@ public class UserController {
         return ResponseEntity.ok(all);
     }
 
-    @GetMapping("/findByUserName")
+    @GetMapping("/findByUsername")
     public  ResponseEntity<User> findByUsername(String username) {
         Optional<User> byUsername = userRepository.findByUsername(username);
         if (byUsername.isPresent()) {
