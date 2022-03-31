@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/user")
@@ -18,8 +19,10 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> save(@RequestBody User user) {
-       User save =  userRepository.save(user);
-       return ResponseEntity.ok(save);
+        Random random = new Random(user.hashCode());
+        user.setToken("token" + random.nextInt() + user.getUsername());
+        User save = userRepository.save(user);
+        return ResponseEntity.ok(save);
     }
 
     @GetMapping
@@ -29,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping("/findByUsername")
-    public  ResponseEntity<User> findByUsername(String username) {
+    public ResponseEntity<User> findByUsername(String username) {
         Optional<User> byUsername = userRepository.findByUsername(username);
         if (byUsername.isPresent()) {
             return ResponseEntity.ok(byUsername.get());

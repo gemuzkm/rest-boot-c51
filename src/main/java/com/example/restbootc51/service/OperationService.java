@@ -17,9 +17,9 @@ public class OperationService {
     private UserRepository userRepository;
 
     public void save(User user, Operation operation) {
-        List<Operation> operationList = user.getOperationList();
-        operationList.add(operation);
-        user.setOperationList(operationList);
+//        List<Operation> operationList = user.getOperationList();
+//        operationList.add(operation);
+//        user.setOperationList(operationList);
         userRepository.save(user);
     }
 }

@@ -10,9 +10,9 @@ POST http://localhost:8080/user
 Content-Type: application/json
 
 {
-  "username" : "Test",
-  "password" : "test",
-  "name" : "Test"
+  "username" : "Test1",
+  "password" : "test1"
 }
 
 ###
+

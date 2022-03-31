@@ -1,0 +1,12 @@
+POST http://localhost:8080/calc
+Content-Type: application/json
+X-API-Token: token-340974599Test1
+
+{
+  "value1" : 2,
+  "value2" : 2,
+  "operation" : "SUM"
+}
+
+###
+
