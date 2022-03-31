@@ -1,4 +1,4 @@
-package service;
+package com.example.restbootc51.service;
 
 import com.example.restbootc51.entity.Operation;
 import com.example.restbootc51.entity.User;
