@@ -1,6 +1,6 @@
 POST http://localhost:8080/calc
 Content-Type: application/json
-X-API-Token: token45901267721Test1
+X-API-Token: token21625747030user1
 
 {
   "value1" : 2,
@@ -12,7 +12,7 @@ X-API-Token: token45901267721Test1
 
 POST http://localhost:8080/calc
 Content-Type: application/json
-X-API-Token: token45901267721Test1
+X-API-Token: token21625747030user1
 
 {
   "value1" : 22,
@@ -36,7 +36,7 @@ X-API-Token: token787225896Test1
 
 GET http://localhost:8080/calc/history
 Content-Type: application/json
-X-API-Token: token45901267721Test1
+X-API-Token: token21625747030user1
 
 ###
 
