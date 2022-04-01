@@ -19,7 +19,7 @@ public class Interceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (request.getHeader(HEADER_X_API_TOKEN) != null & userRepository.findByToken(request.getHeader(HEADER_X_API_TOKEN)).isPresent()) {
+        if (userRepository.findByToken(request.getHeader(HEADER_X_API_TOKEN)).isPresent()) {
             return true;
         }
 

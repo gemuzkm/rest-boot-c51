@@ -20,7 +20,7 @@ Content-Type: application/json
 
 DELETE http://localhost:8080/user
 Content-Type: application/json
-X-API-Token: token43598445830user1
+X-API-Token: token13257823311user1
 
 {
   "username" : "user1",
