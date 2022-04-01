@@ -50,7 +50,7 @@ public class UserController {
             userFromBD.setToken("token" + new Random().nextInt(user.hashCode()) + LocalDateTime.now().getSecond() + user.getUsername());
             userRepository.delete(userFromBD);
 
-            return new ResponseEntity<>(userFromBD.getId(), HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
