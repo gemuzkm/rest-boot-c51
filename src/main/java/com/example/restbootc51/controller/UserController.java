@@ -4,6 +4,7 @@ import com.example.restbootc51.entity.User;
 import com.example.restbootc51.repository.UserRepository;
 import com.example.restbootc51.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,22 @@ public class UserController {
 
         User save = userRepository.save(user);
         return ResponseEntity.ok(save);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Long> delete(@Valid @RequestBody User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        if (userValidator.isValid(user)) {
+            User userFromBD = userRepository.findByUsername(user.getUsername()).get();
+            userFromBD.setToken("token" + new Random().nextInt(user.hashCode()) + LocalDateTime.now().getSecond() + user.getUsername());
+            userRepository.delete(userFromBD);
+
+            return new ResponseEntity<>(userFromBD.getId(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping("/login")
