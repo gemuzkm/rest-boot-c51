@@ -1,11 +1,14 @@
 package com.example.restbootc51.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name="HISTORY")
@@ -32,7 +35,14 @@ public class Operation {
 
     private Double result;
 
-//    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @JsonIgnore
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public void setUser(User user) {
+        List<Operation> operationList = user.getOperationList();
+        operationList.add(this);
+        this.user = user;
+    }
 }

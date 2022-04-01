@@ -1,6 +1,6 @@
 POST http://localhost:8080/calc
 Content-Type: application/json
-X-API-Token: token-340974599Test1
+X-API-Token: token787225896Test1
 
 {
   "value1" : 2,
@@ -9,4 +9,23 @@ X-API-Token: token-340974599Test1
 }
 
 ###
+
+POST http://localhost:8080/calc
+Content-Type: application/json
+X-API-Token: token787225896Test1
+
+{
+  "value1" : 22,
+  "value2" : 2.5,
+  "operation" : "MULTIPLY"
+}
+
+###
+
+GET http://localhost:8080/calc/history
+Content-Type: application/json
+X-API-Token: token787225896Test1
+
+###
+
 
