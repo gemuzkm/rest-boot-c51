@@ -12,16 +12,16 @@ public class СalculatorService {
         double resultValue = 0;
 
         switch (operation.getOperation()) {
-            case "SUM":
+            case SUM:
                 resultValue = operation.getValue1() + operation.getValue2();
                 break;
-            case "SUBTRACT":
+            case SUBTRACT:
                 resultValue = operation.getValue1() - operation.getValue2();
                 break;
-            case "DIVIDE":
+            case DIVIDE:
                 resultValue = operation.getValue1() / operation.getValue2();
                 break;
-            case "MULTIPLY":
+            case MULTIPLY:
                 resultValue = operation.getValue1() * operation.getValue2();
                 break;
         }

@@ -16,7 +16,11 @@ public class WebConfiguration implements WebMvcConfigurer {
 
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(interceptor)
-                .addPathPatterns("/**").order(2)
-                .excludePathPatterns("/user");
+                .addPathPatterns("/**")
+                .excludePathPatterns("/user")
+                .excludePathPatterns("/swagger-ui/**")
+                .excludePathPatterns("/v2/**")
+                .excludePathPatterns("/swagger-resources/**")
+                .excludePathPatterns("/webjars/**");
     }
 }

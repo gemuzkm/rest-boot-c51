@@ -1,7 +1,7 @@
 package com.example.restbootc51.entity;
 
+import com.example.restbootc51.enums.EnumOperation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,7 +31,8 @@ public class Operation {
     private Double value2;
 
     @NotNull(message = MSG_NO_OPERATOR_IS_SUPPORT)
-    private String operation;
+//    private String operation;
+    private EnumOperation operation;
 
     private Double result;
 
