@@ -1,6 +1,6 @@
 package com.example.restbootc51.configuration;
 
-import com.example.restbootc51.interceptor.Interceptor;
+import com.example.restbootc51.interceptor.ApiInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -8,14 +8,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
 
-    private final Interceptor interceptor;
+    private final ApiInterceptor apiInterceptor;
 
-    public WebConfiguration(Interceptor interceptor) {
-        this.interceptor = interceptor;
+    public WebConfiguration(ApiInterceptor apiInterceptor) {
+        this.apiInterceptor = apiInterceptor;
     }
 
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(interceptor)
+        registry.addInterceptor(apiInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/user")
                 .excludePathPatterns("/swagger-ui/**")

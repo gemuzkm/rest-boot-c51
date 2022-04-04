@@ -40,4 +40,10 @@ X-API-Token: token21625747030user1
 
 ###
 
+GET http://localhost:8080/calc/history
+Content-Type: application/json
+#X-API-Token: token21625747030user1
+
+###
+
 

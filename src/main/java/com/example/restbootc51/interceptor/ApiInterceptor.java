@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-public class Interceptor implements HandlerInterceptor {
+public class ApiInterceptor implements HandlerInterceptor {
     public static final String HEADER_X_API_TOKEN = "X-API-Token";
 
     private final UserRepository userRepository;
 
-    public Interceptor(UserRepository userRepository) {
+    public ApiInterceptor(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
